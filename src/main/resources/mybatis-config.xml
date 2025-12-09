@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 环境配置 -->
+    <!-- 加载类路径下的属性文件 -->
+    <properties resource="db.properties"/>
+    <settings>
+        <!-- 打开延迟加载的开关 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 将积极加载改为消息加载，即按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- 自动将下划线列名映射为驼峰属性名（e.g. allow_comment -> allowComment） -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!--使用扫描包的形式定义别名 -->
+    <typeAliases>
+        <package name="com.example.bean"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!-- 数据库连接相关配置 ,db.properties文件中的内容 -->
+            <!-- 使用 MyBatis 自带的 POOLED 连接池，并开启空闲连接检测，避免长时间不用后拿到已失效连接 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${mysql.driver}"/>
+                <property name="url" value="${mysql.url}"/>
+                <property name="username" value="${mysql.username}"/>
+                <property name="password" value="${mysql.password}"/>
+
+                <!-- 以下为 MyBatis PooledDataSource 的保活配置，可按需调整 -->
+                <!-- 最长空闲时间（毫秒），超过后下次借出前会被丢弃并重建，默认 20 分钟，这里改为 10 分钟 -->
+                <property name="poolMaximumIdleConnections" value="5"/>
+                <property name="poolMaximumActiveConnections" value="20"/>
+                <!-- 两次检测空闲连接的时间间隔（毫秒），这里 300000 = 5 分钟 -->
+                <property name="poolTimeToWait" value="300000"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- mapping文件路径配置 -->
+    <mappers>
+        <!-- 注解方式的 ArticleMapper 直接通过 class 注册 -->
+        <mapper class="com.example.dao.ArticleMapper"/>
+
+        <!-- AdminUserMapper 仍使用外部 XML -->
+        <mapper resource="mapper/AdminUserMapper.xml"/>
+    </mappers>
+</configuration>

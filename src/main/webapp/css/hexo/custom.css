@@ -1,0 +1,132 @@
+/* Generated from _config.butterfly.yml */
+
+:root {
+  --btn-hover-color: #ff7242;
+  --btn-bg: #49b1f5;
+  --text-bg-hover: #49b1f5;
+  --hr-border: #a4d8fa;
+  --theme-color: #49b1f5;
+  --text-selection: #00c4b6;
+  --link-color: #99a9bf;
+  --paginator-color: #00c4b6;
+  --meta-color: #858585;
+  --code-foreground: #f47466;
+  --code-background: rgba(27, 31, 35, 0.05);
+  --toc-color: #00c4b6;
+  --blockquote-padding-color: #49b1f5;
+  --blockquote-background-color: #49b1f5;
+  --scrollbar-color: #49b1f5;
+}
+
+body {
+  background: url("https://picbed.ghib6.com/img/15.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  font-size: 15px;
+}
+
+/* Font settings */
+body,
+.code {
+  font-size: 15px;
+}
+
+code {
+  font-size: 14px;
+}
+
+/* Avatar effect */
+.avatar-img {
+  transition: transform 0.5s;
+}
+.avatar-img:hover {
+  transform: rotate(360deg);
+}
+
+/* Post title color */
+.post-title {
+  color: #49b1f5;
+}
+
+/* Rounded corners */
+.card-widget,
+.recent-post-item,
+.layout > div:first-child:not(.nc) {
+  border-radius: 8px;
+}
+
+/* Mask effect */
+#page-header::before {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#footer::before {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom text selection color */
+::selection {
+  background: #00c4b6;
+  color: #f7f7f7;
+}
+
+/* Scrollbar color */
+::-webkit-scrollbar-thumb {
+  background: #49b1f5;
+}
+
+/* Button hover color */
+.btn-beautify:hover {
+  background-color: #ff7242;
+}
+
+/* 登录卡片半透明玻璃拟态效果 */
+.login-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(5px) saturate(150%);
+  -webkit-backdrop-filter: blur(5px) saturate(150%);
+  border-radius: 20px;
+  border: 1px solid rgb(169, 169, 169);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+/* 标题使用主题主色，与 _config.butterfly.yml 的 theme_color 对齐 */
+.login-title {
+  color: #49b1f5;
+  font-weight: 600;
+}
+
+.login-btn-primary {
+  background: #49b1f5;
+  border-color: #49b1f5;
+}
+
+.login-btn-primary:hover {
+  background: #ff7242;
+  border-color: #ff7242;
+}
+
+/* 表单输入框轻微高亮效果 */
+.login-input:focus {
+  border-color: #49b1f5;
+  box-shadow: 0 0 0 0.2rem rgba(73, 177, 245, 0.25);
+}
+
+/* 小屏幕适配 */
+@media (max-width: 576px) {
+  .login-card {
+    border-radius: 16px;
+  }
+}
