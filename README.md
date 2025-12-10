@@ -192,7 +192,8 @@ javablog/
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/Ghib6/javablog.git
+# 克隆仓库（替换为实际的仓库地址）
+git clone https://github.com/your-username/javablog.git
 cd javablog
 ```
 
@@ -278,8 +279,11 @@ cp target/9.23javaee.war $TOMCAT_HOME/webapps/
 启动 Tomcat 后，在浏览器中访问：
 
 ```
-http://localhost:8080/9.23javaee/
+http://localhost:8080/{context-path}/
 ```
+
+> **注意**: `{context-path}` 为应用的上下文路径，取决于 WAR 文件名。
+> 例如：如果部署的是 `9.23javaee.war`，则访问 `http://localhost:8080/9.23javaee/`
 
 默认管理员账号：
 - 用户名：`admin`
@@ -337,9 +341,13 @@ mvn clean package
 #### 方式一：WAR 部署
 
 1. 构建 WAR 包：`mvn clean package`
-2. 将 `target/9.23javaee.war` 复制到 `$TOMCAT_HOME/webapps/`
-3. 启动 Tomcat：`$TOMCAT_HOME/bin/startup.sh`
-4. 访问：`http://localhost:8080/9.23javaee/`
+2. 将生成的 WAR 文件复制到 `$TOMCAT_HOME/webapps/`
+3. 启动 Tomcat：`$TOMCAT_HOME/bin/startup.sh` (Linux/Mac) 或 `startup.bat` (Windows)
+4. 访问应用（根据 WAR 文件名确定上下文路径）
+
+> **提示**: WAR 文件名（去掉 `.war` 后缀）即为访问路径。例如：
+> - `blog.war` → `http://localhost:8080/blog/`
+> - `ROOT.war` → `http://localhost:8080/`
 
 #### 方式二：IDE 部署
 

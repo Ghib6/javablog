@@ -97,8 +97,9 @@ Write-Host "`n资源复制完成！" -ForegroundColor Yellow
 # ============================================================
 
 # 1. 设定源目录与目标目录（请根据实际路径调整）
-HEXO_THEME_PATH="/path/to/Blog/themes/hexo-theme-butterfly/source"
-JAVABLOG_PATH="/path/to/javablog/src/main/webapp"
+# 示例路径，请根据您的实际安装位置修改
+HEXO_THEME_PATH="$HOME/Blog/themes/hexo-theme-butterfly/source"
+JAVABLOG_PATH="$HOME/workspace/javablog/src/main/webapp"
 
 # 2. 复制图片目录
 SRC_IMG="$HEXO_THEME_PATH/img"
@@ -161,7 +162,8 @@ src/main/webapp/
 mvn clean package
 
 # 部署到 Tomcat 并启动
-# 在浏览器中访问：http://localhost:8080/9.23javaee/
+# 在浏览器中访问：http://localhost:8080/{context-path}/
+# 上下文路径取决于 WAR 文件名
 ```
 
 ### 3. 检查浏览器控制台
@@ -222,8 +224,8 @@ powershell -ExecutionPolicy Bypass -File script.ps1
 /* 修改前 */
 background-image: url('../img/background.jpg');
 
-/* 修改后（如果需要） */
-background-image: url('/9.23javaee/img/background.jpg');
+/* 修改后（如果需要使用绝对路径） */
+background-image: url('/{context-path}/img/background.jpg');
 ```
 
 ### Q4: 字体文件加载失败
@@ -252,9 +254,9 @@ webapp/
 
 ### CSS 中的路径引用
 
-- **相对路径**: `../img/icon.png`
-- **绝对路径**: `/9.23javaee/img/icon.png`（推荐用于生产环境）
-- **上下文路径**: `${pageContext.request.contextPath}/img/icon.png`（JSP 中）
+- **相对路径**: `../img/icon.png` （推荐，无需修改上下文路径）
+- **绝对路径**: `/{context-path}/img/icon.png` （需要替换 `{context-path}` 为实际值）
+- **JSP 动态路径**: `${pageContext.request.contextPath}/img/icon.png` （推荐用于 JSP 页面）
 
 ---
 
