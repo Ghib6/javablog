@@ -148,7 +148,7 @@ javablog/
 │   │       ├── img/                 # 主题图片
 │   │       └── *.jsp                # JSP 页面
 │   └── test/                        # 测试代码
-├── target/                          # 编译输出（不提交到版本控制）
+├── target/                          # 编译输出（由 .gitignore 排除，不提交到版本控制）
 ├── pom.xml                          # Maven 配置
 └── README.md                        # 项目说明
 ```
