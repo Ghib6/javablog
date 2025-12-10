@@ -8,7 +8,7 @@
 // import java.io.IOException;
 // import java.util.List;
 
-// //@WebServlet(name = "ArticlelistServlet", value = "/showArticlelist")
+// //@WebServlet(name = "ArticlelistServlet", value = "/showArticlel    ist")
 // public class ArticleListServlet extends HttpServlet {
 //     @Override
 //     protected void doGet(HttpServletRequest request, HttpServletResponse response)
